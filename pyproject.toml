@@ -1,16 +1,16 @@
 [project]
 name = "vc-analysis"
-version = "0.0.1"
+version = "0.0.2"
 requires-python = ">=3.11"
 dependencies = [
   "mcp",
+  "uvicorn",
 ]
 
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
-# ✅ prevent setuptools from trying to treat ./data or ./alpic as python packages
 [tool.setuptools]
 py-modules = []
 packages = []
