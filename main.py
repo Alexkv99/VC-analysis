@@ -25,6 +25,11 @@ STOP = {
 
 WORD_RE = re.compile(r"[a-zA-Z][a-zA-Z\-]+")
 
+@mcp.tool()
+def ping() -> Dict[str, Any]:
+    return {"ok": True}
+
+
 def _text_of(it: Dict[str, Any]) -> str:
     return " ".join([
         it.get("title") or "",
@@ -207,7 +212,6 @@ def correlate_trends(top_terms: int = 20, top_pairs: int = 12) -> Dict[str, Any]
     }
 
 if __name__ == "__main__":
-    # IMPORTANT for Alpic transport detection:
-    # Alpic scans for mcp.run(transport=...) in Python. :contentReference[oaicite:2]{index=2}
     port = int(os.environ.get("PORT", "8000"))
-    mcp.run(transport="http", host="0.0.0.0", port=port, path="/mcp")
+    mcp.run(transport="http", host="0.0.0.0", port=port)
+
