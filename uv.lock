@@ -676,7 +676,11 @@ version = "0.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "mcp" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "mcp" }]
+requires-dist = [
+    { name = "mcp" },
+    { name = "uvicorn" },
+]

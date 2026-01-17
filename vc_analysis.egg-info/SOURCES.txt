@@ -1,0 +1,6 @@
+pyproject.toml
+vc_analysis.egg-info/PKG-INFO
+vc_analysis.egg-info/SOURCES.txt
+vc_analysis.egg-info/dependency_links.txt
+vc_analysis.egg-info/requires.txt
+vc_analysis.egg-info/top_level.txt
