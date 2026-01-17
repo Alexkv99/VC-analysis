@@ -211,7 +211,19 @@ def correlate_trends(top_terms: int = 20, top_pairs: int = 12) -> Dict[str, Any]
         "note": "This is keyword-level correlation (demo). Next step is correlating clusters + portfolio/company mention series."
     }
 
+app = mcp.streamable_http_app()
+
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8000"))
-    mcp.run(transport="http", host="0.0.0.0", port=port)
+    # --- Alpic transport detection hint ---
+    # Alpic scans source for mcp.run(transport="http"). Keep it present.
+    if False:
+        mcp.run(transport="http")
+
+    import uvicorn
+    port = int(os.environ.get("PORT") or os.environ.get("ALPIC_PORT") or "8000")
+    print(f"Starting MCP HTTP on 0.0.0.0:{port}", flush=True)
+
+    # Run ASGI app directly (most reliable for platform port detection)
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
 
