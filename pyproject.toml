@@ -1,0 +1,11 @@
+[project]
+name = "vc-analysis"
+version = "0.0.1"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
